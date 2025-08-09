@@ -1,0 +1,17 @@
+{
+  "name": "@rafaelnoll/codegen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npx jest --runInBand --no-cache --watch --config jest.config.js",
+    "test:cov": "npx jest --config jest.config.js --coverage"
+  },
+  "keywords": [],
+  "author": "rafaelnoll",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
