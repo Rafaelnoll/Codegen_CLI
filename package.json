@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npx jest --runInBand --no-cache --watch --config jest.config.js",
-    "test:cov": "npx jest --config jest.config.js --coverage"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --no-cache --watch --config jest.config.mjs ",
+    "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --coverage "
   },
   "keywords": [],
   "author": "rafaelnoll",

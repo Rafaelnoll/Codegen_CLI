@@ -23,6 +23,5 @@ export default {
   testEnvironment: "node",
   watchPathIgnorePatterns: [
     "node_modules"
-  ],
-  transformIgnorePatterns: ["node_modules"]
+  ]
 }
