@@ -3,7 +3,7 @@ import Util from "../util";
 const componentNameAnchor = '<COMPONENT_NAME>';
 
 const template = `
-export default class <COMPONENT_NAME>Repository {
+export default class ${componentNameAnchor}Repository {
   constructor() { }
 
   read(query) {

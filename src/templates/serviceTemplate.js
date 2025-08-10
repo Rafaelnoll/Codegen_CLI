@@ -5,25 +5,25 @@ const repositoryNameAnchor = "<REPOSITORY_NAME>";
 const currentContextAnchor = "<CURRENT_CONTEXT>";
 
 const template = `
-export default class <COMPONENT_NAME>Service {
-  constructor({ repository: <REPOSITORY_NAME>  }) {
-    <CURRENT_CONTEXT> = <REPOSITORY_NAME>;
+export default class ${componentNameAnchor}Service {
+  constructor({ repository: ${repositoryNameAnchor}  }) {
+    ${currentContextAnchor} = ${repositoryNameAnchor};
   }
 
   read(query) {
-    return <CURRENT_CONTEXT>.read(query);
+    return ${currentContextAnchor}.read(query);
   }
 
   create(data) {
-    return <CURRENT_CONTEXT>.create(data);
+    return ${currentContextAnchor}.create(data);
   }
 
   update(id, data) {
-    return <CURRENT_CONTEXT>.update(id, data);
+    return ${currentContextAnchor}.update(id, data);
   }
 
   delete(id) {
-    return <CURRENT_CONTEXT>.delete(id);
+    return ${currentContextAnchor}.delete(id);
   }
 }`
 
