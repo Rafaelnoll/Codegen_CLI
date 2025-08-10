@@ -8,14 +8,17 @@ import {
 
 import templates from './mocks';
 import repositoryTemplate from '../../src/templates/repositoryTemplate';
+import serviceTemplate from '../../src/templates/serviceTemplate';
 
 const {
-  repositoryTemplateMock
+  repositoryTemplateMock,
+  serviceTemplateMock
 } = templates;
 
 describe('#Codegen 3-layers arch', () => {
   const componentName = 'product';
   const repositoryName = `${componentName}Repository`;
+  const serviceName = `${componentName}Service`;
 
   beforeEach(() => {
     jest.restoreAllMocks();
@@ -31,7 +34,16 @@ describe('#Codegen 3-layers arch', () => {
 
     expect(repositoryTemplate(componentName)).toStrictEqual(expected);
   });
-  test.todo("Should generate Service template")
+
+  test("Should generate Service template", () => {
+    const expected = {
+      fileName: serviceName,
+      template: serviceTemplateMock
+    }
+
+    expect(serviceTemplate(componentName, repositoryName)).toStrictEqual(expected);
+  })
+
   test.todo("Should generate Factory template")
 
 });

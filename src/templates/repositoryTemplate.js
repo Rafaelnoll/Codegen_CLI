@@ -1,9 +1,9 @@
 import Util from "../util";
 
-const componentNameAnchor = '<TEMPLATE_NAME>';
+const componentNameAnchor = '<COMPONENT_NAME>';
 
 const template = `
-export default class <TEMPLATE_NAME>Repository {
+export default class <COMPONENT_NAME>Repository {
   constructor() { }
 
   read(query) {
@@ -28,6 +28,6 @@ export default function repositoryTemplate(componentName) {
 
   return {
     fileName: `${fileName}Repository`,
-    template: template.replace(componentNameAnchor, Util.upperCaseFirstLetter(componentName))
+    template: template.replaceAll(componentNameAnchor, Util.upperCaseFirstLetter(componentName))
   }
 }
