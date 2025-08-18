@@ -2,7 +2,7 @@ import fs from 'fs';
 import fsPromise from 'fs/promises';
 import { join } from 'path';
 
-export default async function createLayers({ mainPath, defaultMainFolder, layers }) {
+export async function createLayersIfNotExists({ mainPath, defaultMainFolder, layers }) {
   const defaultPath = join(mainPath, defaultMainFolder);
   const foldersToCreate = layers.filter(layer => !fs.existsSync(join(defaultPath, layer)));
 

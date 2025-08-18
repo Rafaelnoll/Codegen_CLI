@@ -8,7 +8,7 @@ import {
 
 import fsPromise from 'fs/promises';
 import fs from 'fs';
-import createLayers from '../../src/createLayers';
+import { createLayersIfNotExists } from '../../src/createLayers';
 
 describe('#Layers - Folder Structure', () => {
   const defaultLayers = ["repository", "service", "factory"];
@@ -22,7 +22,7 @@ describe('#Layers - Folder Structure', () => {
     jest.spyOn(fsPromise, fsPromise.mkdir.name).mockResolvedValue();
     jest.spyOn(fs, fs.existsSync.name).mockReturnValue(false);
 
-    await createLayers({ mainPath: '', layers: defaultLayers, defaultMainFolder: 'src' });
+    await createLayersIfNotExists({ mainPath: '', layers: defaultLayers, defaultMainFolder: 'src' });
 
     expect(fs.existsSync).toHaveBeenCalledTimes(defaultLayers.length)
     expect(fsPromise.mkdir).toHaveBeenCalledTimes(defaultLayers.length)
@@ -32,7 +32,7 @@ describe('#Layers - Folder Structure', () => {
     jest.spyOn(fsPromise, fsPromise.mkdir.name).mockResolvedValue();
     jest.spyOn(fs, fs.existsSync.name).mockReturnValue(true);
 
-    await createLayers({ mainPath: '', layers: defaultLayers, defaultMainFolder: 'src' });
+    await createLayersIfNotExists({ mainPath: '', layers: defaultLayers, defaultMainFolder: 'src' });
 
     expect(fs.existsSync).toHaveBeenCalledTimes(3);
     expect(fsPromise.mkdir).toHaveBeenCalledTimes(0);
