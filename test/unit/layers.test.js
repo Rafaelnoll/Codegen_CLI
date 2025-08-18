@@ -9,9 +9,9 @@ import {
 import fsPromise from 'fs/promises';
 import fs from 'fs';
 import { createLayersIfNotExists } from '../../src/createLayers';
+import { defaultLayers } from '../constants/defaultLayers';
 
 describe('#Layers - Folder Structure', () => {
-  const defaultLayers = ["repository", "service", "factory"];
 
   beforeEach(() => {
     jest.restoreAllMocks();
