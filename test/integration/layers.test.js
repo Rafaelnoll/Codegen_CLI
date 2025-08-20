@@ -11,6 +11,7 @@ import { tmpdir } from 'os';
 import fsPromise from 'fs/promises';
 import { join } from 'path';
 import { createLayersIfNotExists } from '../../src/createLayers';
+import { defaultLayers } from '../constants/defaultLayers';
 
 async function getFolders({ mainPath, defaultMainFolder }){
   return fsPromise.readdir(join(mainPath, defaultMainFolder));
@@ -20,7 +21,7 @@ describe('#Integration - Layers - Folder Structure', () => {
   const config = {
     defaultMainFolder: 'src',
     mainPath: '',
-    layers: ['service', 'factory', 'repository'].sort()
+    layers: defaultLayers.sort()
   }
 
   beforeAll(async () => {
