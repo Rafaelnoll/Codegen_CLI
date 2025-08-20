@@ -156,6 +156,7 @@ codegen --help
 
 - [Node.js](https://nodejs.org/)
 - [Yargs](https://yargs.js.org/)
+- [Chalk](https://github.com/chalk/chalk)
 
 ---
 
