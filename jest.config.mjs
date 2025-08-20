@@ -7,7 +7,7 @@ export default {
     "lcov",
     "clover"
   ],
-  collectConverageFrom: [
+  collectCoverageFrom: [
     "src/**/*.js",
     "!src/index.js"
   ],
