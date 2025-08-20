@@ -13,7 +13,7 @@ import { join } from 'path';
 import { createLayersIfNotExists } from '../../src/createLayers';
 import { defaultLayers } from '../constants/defaultLayers';
 import { createFiles } from '../../src/createFiles';
-import Util from '../../src/util';
+import Util from '../../src/util.js';
 
 function generateFilePath({ mainPath, defaultMainFolder, layers, componentName }){
   return layers.map(layer => {

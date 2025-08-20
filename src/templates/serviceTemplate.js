@@ -1,4 +1,4 @@
-import Util from "../util";
+import Util from "../util.js";
 
 const componentNameAnchor = "<COMPONENT_NAME>";
 const repositoryNameAnchor = "<REPOSITORY_NAME>";
