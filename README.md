@@ -1,55 +1,75 @@
 # 🏗️ Codegen
 
-O **Codegen** é uma ferramenta de linha de comando (CLI) que facilita a criação rápida de **domínios de repository, service e factory** em projetos Node.js.
-Com apenas um comando, você pode gerar a estrutura base do seu projeto de forma padronizada e escalável.
+**Codegen** is a command line interface (CLI) tool that helps you quickly create **repository, service, and factory domains** in Node.js projects.
+With just one command, you can generate the base structure of your project in a standardized and scalable way.
 
 ---
 
-## 📦 Instalação
+## 📦 Installation
 
-Instale o pacote globalmente via NPM:
+Install the package globally via NPM:
 
 ```bash
-npm install -g codegen-cli
+npm install -g @rafaelnoll/codegen
 ```
 
-Agora o comando `codegen` estará disponível no seu terminal.
+Now the `codegen` command will be available in your terminal.
 
 ---
 
-## 📖 Uso
+## 📖 Usage
 
-A CLI possui o comando principal `skeleton`, que cria a estrutura de um domínio.
+The CLI provides the main command `skeleton`, which creates the structure for one or more domains.
 
-### Criar um único domínio
+### Create a single domain
 
 ```bash
 codegen skeleton --component-name product
 ```
 
-ou de forma reduzida:
+or using the short alias:
 
 ```bash
 codegen skeleton -c product
 ```
 
-Isso irá gerar a estrutura de **repository**, **service** e **factory** para o domínio `product`.
+This will generate the **repository**, **service**, and **factory** for the `product` domain inside the default folder `src`.
 
 ---
 
-### Criar múltiplos domínios
-
-Você pode criar vários domínios de uma vez:
+### Create multiple domains
 
 ```bash
 codegen skeleton -c product -c person -c colors
 ```
 
+This will generate **multiple domains** (`product`, `person`, `colors`) inside the default folder `src`.
+
 ---
 
-## 📂 Estrutura gerada
+### Specify a custom main folder
 
-Ao executar o comando, o Codegen cria a seguinte estrutura para cada domínio:
+You can override the default `src` folder using the `--main-folder` (or `-f`) option.
+
+- Example with a single domain:
+
+```bash
+codegen skeleton -c product --main-folder main
+```
+
+- Example with multiple domains:
+
+```bash
+codegen skeleton -c product -c person -f main
+```
+
+This will generate the domains inside the folder `main` instead of `src`.
+
+---
+
+## 📂 Generated structure
+
+When executing the command, Codegen generates the following structure for each domain:
 
 ```
 src/
@@ -59,7 +79,7 @@ src/
       └── product.factory.js
 ```
 
-Para múltiplos domínios, cada um terá sua própria pasta:
+For multiple domains:
 
 ```
 src/
@@ -79,35 +99,52 @@ src/
       └── colors.factory.js
 ```
 
+If you pass `--main-folder main`, the structure will be:
+
+```
+main/
+ └── product/
+      ├── product.repository.js
+      ├── product.service.js
+      └── product.factory.js
+```
+
 ---
 
-## ⚙️ Opções disponíveis
+## ⚙️ Available options
 
-| Opção             | Alias | Tipo   | Obrigatório | Descrição                                    |
-|-------------------|-------|--------|-------------|----------------------------------------------|
-| `--component-name` | `-c`  | array  | ✅          | Nome(s) dos componentes/domínios a serem criados |
+| Option             | Alias | Type   | Required | Default | Description                                                  |
+|--------------------|-------|--------|----------|---------|--------------------------------------------------------------|
+| `--component-name` | `-c`  | array  | ✅        | -       | Name(s) of the component(s)/domain(s) to be created          |
+| `--main-folder`    | `-f`  | string | ❌        | `src`   | Name of the main folder where the domains will be generated  |
 
 ---
 
-## 📌 Exemplos de uso
+## 📌 Examples
 
-- Criar um domínio chamado `order`:
+- Create a single domain named `order` inside `src`:
 
 ```bash
 codegen skeleton -c order
 ```
 
-- Criar três domínios de uma vez (`order`, `user`, `invoice`):
+- Create three domains (`order`, `user`, `invoice`) inside `src`:
 
 ```bash
 codegen skeleton -c order -c user -c invoice
 ```
 
+- Create a domain inside a custom folder `main`:
+
+```bash
+codegen skeleton -c order -f main
+```
+
 ---
 
-## 📜 Ajuda
+## 📜 Help
 
-Para ver todas as opções disponíveis:
+To see all available options:
 
 ```bash
 codegen --help
@@ -115,14 +152,20 @@ codegen --help
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Built with
 
 - [Node.js](https://nodejs.org/)
 - [Yargs](https://yargs.js.org/)
 
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+Feel free to open an **issue** or submit a **pull request**.
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença **MIT**.
+This project is licensed under the **MIT License**.
